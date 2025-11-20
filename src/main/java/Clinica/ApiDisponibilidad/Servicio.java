@@ -25,6 +25,7 @@ public class Servicio {
     public Disponibilidad actualizar(Long id, Disponibilidad dis) {
         return repo.findById(id).map(existing -> {
             existing.setIdMed(dis.getIdMed());
+            existing.setIdEsp(dis.getIdEsp());
             existing.setFec(dis.getFec());
             existing.setHorIni(dis.getHorIni());
             existing.setHorFin(dis.getHorFin());
