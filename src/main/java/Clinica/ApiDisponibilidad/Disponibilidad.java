@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Clinica.ApiDisponibilidad;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,19 +9,19 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-/**
- *
- * @author broncake
- */
 @Entity
 public class Disponibilidad {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long idMed;
     private Long idEsp;
+    @JsonFormat(pattern = "dd/MM/yyyy", timezone = "America/Lima")
     private LocalDate fec;
+    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime horIni;
+    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime horFin;
     private String est;
 
@@ -96,5 +94,4 @@ public class Disponibilidad {
         this.est = est;
     }
 
-    
 }
